@@ -68,13 +68,15 @@ n_epochs=5
 for k in range(n_epochs):
     print(f'epoch{k+1}/{n_epochs}',end=':',flush=True)
 
+    time_start=time.time()    
     loss_train=models.train(model,dataloader_test,loss_fn,optimizer)
-    print(f'train loss:{loss_train}')
+    time_end=time.time()
+    print(f'train loss:{loss_train:3f}{time_end-time_start}s')
     
     loss_test=models.test(model,dataloader_test,loss_fn)
     print(f'test loss:{loss_test}')
 
     acc_train=models.test_accuracy(model,dataloader_train)
-    print(f'train accuracy:{acc_train*100:.3f}%')
+    print(f'train accuracy:{acc_train*100:.3f}%{time_end-time_start}s')
     acc_test=models.test_accuracy(model,dataloader_test)
     print(f'test accuracy:{acc_test*100:.3f}%')
