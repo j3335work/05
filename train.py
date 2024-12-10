@@ -71,12 +71,19 @@ for k in range(n_epochs):
     time_start=time.time()    
     loss_train=models.train(model,dataloader_test,loss_fn,optimizer)
     time_end=time.time()
-    print(f'train loss:{loss_train:3f}{time_end-time_start}s')
+    print(f'train loss:{loss_train:3f}{time_end-time_start:1f}s',end='',end='')
     
+    time_start=time.time()   
     loss_test=models.test(model,dataloader_test,loss_fn)
-    print(f'test loss:{loss_test}')
+    time_end=time.time()
+    print(f'test loss:{loss_test}{time_end-time_start:1f}s',end='')
 
+    time_start=time.time()   
     acc_train=models.test_accuracy(model,dataloader_train)
-    print(f'train accuracy:{acc_train*100:.3f}%{time_end-time_start}s')
+    time_end=time.time()
+    print(f'train accuracy:{acc_train*100:.3f}%{time_end-time_start:1f}s',end='')
+    
+    time_start=time.time()   
     acc_test=models.test_accuracy(model,dataloader_test)
-    print(f'test accuracy:{acc_test*100:.3f}%')
+    time_end=time.time()
+    print(f'test accuracy:{acc_test*100:.3f}%{time_end-time_start:1f}s',end='')
