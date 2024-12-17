@@ -6,8 +6,6 @@ import torchvision.transforms.v2 as transforms
 
 import models
 
-
-
 model=models.MyModel()
 print(model)
 

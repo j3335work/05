@@ -9,6 +9,8 @@ import torchvision.transforms.v2 as transforms
 import models
 
 
+
+
 ds_transform=transforms.Compose([
     transforms.ToImage(),
     transforms.ToDtype(torch.float32,scale=True)
@@ -87,3 +89,4 @@ for k in range(n_epochs):
     acc_test=models.test_accuracy(model,dataloader_test)
     time_end=time.time()
     print(f'test accuracy:{acc_test*100:.3f}%{time_end-time_start:1f}s',end='')
+  
